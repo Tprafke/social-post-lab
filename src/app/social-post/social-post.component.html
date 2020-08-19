@@ -1,0 +1,13 @@
+<button *ngIf="showForm === false" (click)="toggleForm()">Show Form</button>
+<app-post-form
+  *ngIf="showForm === true"
+  (submitted)="onSubmit($event)"
+></app-post-form>
+
+<ul>
+  <app-post
+    *ngFor="let post of posts; index as i"
+    [postRef]="post"
+    (deleted)="onDelete(i)"
+  ></app-post>
+</ul>
